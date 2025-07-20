@@ -8,7 +8,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const model = new ChatGroq({
-	apiKey: process.env.GROQ_API_KEY,
+	apiKey: process.env.GROQ_API_KEY, // your free api key from https://console.groq.com/keys
 	model: 'llama-3.3-70b-versatile'
 })
 
