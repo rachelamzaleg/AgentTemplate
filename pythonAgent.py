@@ -14,7 +14,7 @@ wikipedia = WikipediaAPIWrapper(wiki_client=None)
 @tool
 def my_tool(location) -> str:
     """
-    dexcription of the tool
+    description of the tool
     """
     # implement your tool
     return "result"
@@ -35,7 +35,7 @@ agent = initialize_agent(
 # cemplete the prompt & input
 prompt = PromptTemplate(
     input_variables=["input"],
-    template="tel me about {input}..."
+    template="tell me about {input}..."
 )
 
 res = agent.invoke({"input": "AI"})
