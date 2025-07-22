@@ -17,6 +17,7 @@ const wikipediaTool = new WikipediaQueryRun({
 	maxDocContentLength: 4000
 })
 
+// your implementation here
 const myTool = new DynamicTool({
 	name: 'name of tool',
 	description: 'description of tool',
