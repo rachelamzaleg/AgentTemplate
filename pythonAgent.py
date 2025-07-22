@@ -32,7 +32,7 @@ agent = initialize_agent(
     llm=llm, tools=tools, verbose=True, handle_parsing_errors=True
 )
 
-# cemplete the prompt & input
+# complete the prompt & input
 prompt = PromptTemplate(
     input_variables=["input"],
     template="tell me about {input}..."
