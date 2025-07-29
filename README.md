@@ -11,3 +11,16 @@
 - user prompt - בקשה ספציפית מהLLM
 - agent - LLM שמסוגל לפעול עצמאית, להריץ כלים ולעבוד בשלבים מורכבים.
 - tool - פונקציה עם תיאור שהagent יכול להריץ
+
+
+1. create venv - python -m venv venv
+2. activate venv - \venv\Scripts\activate
+3. install dependecies :
+*pip install langchain
+*pip install langchain_community.utilities
+*pip install langchain-community
+*pip install -U langchain-groq   
+*pip install wikipedia   
+4. create requirement file -   pip freeze > requirements.txt - next time u can use it to install all dependecies
+5. Run   pip freeze > requirements.txt
+

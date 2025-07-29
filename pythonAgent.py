@@ -4,20 +4,26 @@ from langchain_core.prompts import PromptTemplate
 from langchain_community.utilities import WikipediaAPIWrapper
 from langchain_core.tools import tool
 import os
+from dotenv import load_dotenv
 
-os.environ["GROQ_API_KEY"] = "your free api key from https://console.groq.com/keys"
-
+load_dotenv(".env")
 llm = init_chat_model("llama3-8b-8192", model_provider="groq")
 
 wikipedia = WikipediaAPIWrapper(wiki_client=None)
 
 @tool
-def my_tool(location) -> str:
+def my_tool(data: dict) -> str:
     """
-    description of the tool
+    Filters sentences that contain the second keyword.
+    Input: {"text": ..., "keyword": ...}
+    Output: filtered sentences joined by newline
     """
-    # implement your tool
-    return "result"
+    text = data["text"]
+    keyword = data["keyword"]
+    sentences = text.split(".")
+    relevant = [s.strip() for s in sentences if keyword.lower() in s.lower()]
+    return ". ".join(relevant) + "."
+
 
 tools = [
     Tool(
@@ -38,5 +44,6 @@ prompt = PromptTemplate(
     template="tell me about {input}..."
 )
 
-res = agent.invoke({"input": "AI"})
+res = agent.invoke({"input": "beit shemesh"})
+
 print(res["output"])
